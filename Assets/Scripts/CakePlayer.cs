@@ -18,8 +18,16 @@ public class CakePlayer : MonoBehaviour
     private float _scale = 1.0f;
     private float _ar = 1.0f;
 
+    public float cakeTracker = 1;
+    public float verticalCakeTracker = 1;
+
+    public float cakeMultipler = 0.5f;
+
     private void Awake()
     {
+        _scale = bodyCollider.gameObject.transform.localScale.x;
+        Debug.Log("Scale:" + _scale);
+
         moveAction = InputSystem.actions.FindAction("Move");
     }
 
@@ -34,18 +42,26 @@ public class CakePlayer : MonoBehaviour
         if (other.gameObject.CompareTag("Cake"))
         {
             Cake cake = other.gameObject.GetComponent<Cake>();
+
+            Debug.Log("Before Scale:" + _scale);
+
             switch (cake.Type)
             {
                 case Cake.CakeType.Normal:
+                    cakeTracker *= 1- cakeMultipler;
                     _scale += areaDelta;
                     break;
                 case Cake.CakeType.Vertical:
+                    verticalCakeTracker *= 1- cakeMultipler;
                     _ar /= 1.0f + arDelta;
                     break;
                 case Cake.CakeType.Horizontal:
+                    verticalCakeTracker *= 1 + cakeMultipler;
                     _ar *= 1.0f + arDelta;
                     break;
             }
+
+            Debug.Log("Scale:" + _scale);
 
             Destroy(other.gameObject);
 
@@ -55,7 +71,6 @@ public class CakePlayer : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        Debug.Log("Collided with " + other.gameObject.name);
     }
 
     private void UpdateLocalScale()
