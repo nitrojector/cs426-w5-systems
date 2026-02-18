@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ObstacleSpawner : MonoBehaviour
 {
-    private float normalspawn = 0.9f;
+    private float normalspawn = 0.0f;
    
 
     public float SpawnInterval = 5.0f;
@@ -11,6 +11,8 @@ public class ObstacleSpawner : MonoBehaviour
 
     public Vector2 locationRange = new(-6.0f, 6.0f);
     public Vector2 sizeRqange = new(2f, 6f);
+    public Vector2 widthRange = new(2f, 6f);
+
 
     public float VerticalSpawnOffset = 1.0f;
     public float VerticalMax = 5.0f;
@@ -35,21 +37,20 @@ public class ObstacleSpawner : MonoBehaviour
         //Debug.Log("Location: " + location + "Size: " + size);
 
         Obstacle obstacle = Instantiate(prefab, pos, Quaternion.identity);
-        obstacle.SetupObstacle(size, location);
-
-
        
-
-        //Debug.Log("Percent: " + _normalSpawnPerc + " Vert:" + _vertCakeSpawnPerc);
-
         float r = UnityEngine.Random.value;
         if (r < normalspawn)
         {
+            obstacle.SetupObstacle(size, location);
         }
         else
         {
             Debug.Log("Horizontal");
-            
+            //obstacle.SetupObstacle(size, location);
+
+            obstacle.SetupHorizontal(size);
+            //float verticicalOffset = UnityEngine.Random.
+
         }
     }
 }
