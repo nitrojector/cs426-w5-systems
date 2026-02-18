@@ -1161,7 +1161,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!1 &1657131557 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4668968679981756262, guid: 60d64d66c5e5ccc428afedd9d9f83953, type: 3}
