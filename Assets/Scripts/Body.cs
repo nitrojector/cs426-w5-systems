@@ -16,11 +16,13 @@ public class Body : MonoBehaviour
         //thisCollider.enabled = true;
 
         _cakePlayer = GetComponentInParent<CakePlayer>();
-    
 
 
     }
 
+    
+
+ 
     // Update is called once per frame
     private void OnTriggerEnter2D(Collider2D other)
     {

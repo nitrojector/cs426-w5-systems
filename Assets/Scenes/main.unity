@@ -810,7 +810,7 @@ MonoBehaviour:
   sizeRqange: {x: 2, y: 6}
   widthRange: {x: 2, y: 6}
   VerticalSpawnOffset: 1
-  VerticalMax: 5
+  VerticalMax: 7
   prefab: {fileID: 8455156406362925280, guid: e5dbe8916f8acc54f9453104fc2c25d6, type: 3}
 --- !u!4 &1551839284
 Transform:
@@ -1081,12 +1081,20 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 7879964676720482936, guid: 2a52ce61451e6584ebd8d622e16079c1, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7879964676720482936, guid: 2a52ce61451e6584ebd8d622e16079c1, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7879964676720482936, guid: 2a52ce61451e6584ebd8d622e16079c1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7879964676720482936, guid: 2a52ce61451e6584ebd8d622e16079c1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 7879964676720482936, guid: 2a52ce61451e6584ebd8d622e16079c1, type: 3}
       propertyPath: m_LocalPosition.z

@@ -15,6 +15,8 @@ public class CakePlayer : MonoBehaviour
 
     public TextMeshProUGUI scoreText;
 
+    public int score = 0;
+
     public float velocity = 5f;
     public float arDelta = 0.15f;
     public float areaDelta = 0.5f;
@@ -28,6 +30,9 @@ public class CakePlayer : MonoBehaviour
     public float cakeMultipler = 0.5f;
 
     public bool actuallyDie = false;
+
+    public float scoreInterval = 0.25f;
+    private float _t = 0.0f;
 
     private void Awake()
     {
@@ -67,6 +72,18 @@ public class CakePlayer : MonoBehaviour
         {
             scoreText.SetText($"Score: {GameManager.Score}\nHi: {GameManager.HiScore}");
         }
+
+
+        _t += Time.deltaTime;
+        if (_t < scoreInterval) return;
+        _t = 0.0f;
+
+
+
+        GameManager.Score += (int)(Time.deltaTime * 1000);
+        string text = "Score : " + score + "\nHigh Score: " + 0;
+        scoreText.text = text;
+
 
         UpdateLocalScale();
     }
@@ -120,12 +137,15 @@ public class CakePlayer : MonoBehaviour
     public void Reset()
     {
         transform.position = Vector3.zero;
-        _scale = 1.0f;
+        _scale = 3.0f;
         _ar = 1.0f;
         cakeTracker = 1.0f;
         verticalCakeTracker = 1.0f;
 
-        GameManager.Score = 0;
+        GameManager.UpdateScore();
+
+
+
         UpdateLocalScale();
     }
 

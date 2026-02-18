@@ -22,13 +22,14 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    void UpdateScore(int points)
+    public static void UpdateScore()
     {
-        Score = points;
+       // Score = points;
         if (Score > HiScore)
         {
             HiScore = Score;
         }
+        Score = 0;
     }
 
     void Update()

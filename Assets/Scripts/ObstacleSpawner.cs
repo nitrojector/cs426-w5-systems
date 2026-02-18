@@ -15,7 +15,7 @@ public class ObstacleSpawner : MonoBehaviour
 
 
     public float VerticalSpawnOffset = 1.0f;
-    public float VerticalMax = 5.0f;
+    public float VerticalMax = 7.0f;
 
     public Obstacle prefab;
 
