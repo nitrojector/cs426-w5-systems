@@ -1,21 +1,29 @@
+using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Obstacle : MonoBehaviour
 {
     public Transform wallLeft;
     public Transform wallRight;
 
-    public float holeSize = 2f;          
+    public float holeSize = 2f;
     public float holeCenter = 0f;
 
 
     public float screenWidth = 20;
 
-     public float DespawnY = -6.0f;
+    public float DespawnY = -6.0f;
 
     void Awake()
     {
+        ActorManager.Add(gameObject);
         SetupObstacle(holeSize, holeCenter);
+    }
+
+    private void OnDestroy()
+    {
+        ActorManager.Remove(gameObject);
     }
 
     void Update()
@@ -36,7 +44,7 @@ public class Obstacle : MonoBehaviour
         leftWidth = Mathf.Max(0.1f, leftWidth);
         rightWidth = Mathf.Max(0.1f, rightWidth);
 
-      //  Debug.Log("RP:  " +( screenWidth / 2f - rightWidth / 2f));
+        //  Debug.Log("RP:  " +( screenWidth / 2f - rightWidth / 2f));
         //Debug.Log("SW:" + screenWidth + "LW:" + leftWidth + "LP:" + (-screenWidth / 2f + leftWidth / 2f));
         // Position left wall
         wallLeft.localScale = new Vector3(leftWidth, wallLeft.localScale.y, 1);
@@ -61,7 +69,6 @@ public class Obstacle : MonoBehaviour
         );
     }
 
-   
 
     // Call this to randomize hole
     public void RandomizeHole(float minSize, float maxSize)
