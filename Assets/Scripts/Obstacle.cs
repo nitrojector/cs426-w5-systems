@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using static UnityEditor.FilePathAttribute;
 using Random = UnityEngine.Random;
 
 public class Obstacle : MonoBehaviour
