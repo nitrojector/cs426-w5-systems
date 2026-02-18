@@ -20,7 +20,7 @@ public class Head : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-       Debug.Log("Head collided with " + other.gameObject.name);
+      // Debug.Log("Head collided with " + other.gameObject.name);
         _cakePlayer.Interact(other);
 
         if (other.gameObject.CompareTag(deathTag))

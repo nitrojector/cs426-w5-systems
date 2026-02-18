@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -24,6 +25,8 @@ public class CakePlayer : MonoBehaviour
     public float cakeMultipler = 0.5f;
 
     public float score = 0.0f;
+
+    public bool actuallyDie = false;
     //todo scoring
 
     private void Awake()
@@ -44,7 +47,7 @@ public class CakePlayer : MonoBehaviour
 
     public void Interact(Collider2D other)
     {
-        Debug.Log("interact");
+        //Debug.Log("interact");
         if (other.gameObject.CompareTag("Cake"))
         {
             Cake cake = other.gameObject.GetComponent<Cake>();
@@ -85,7 +88,11 @@ public class CakePlayer : MonoBehaviour
     public void Die()
     {
         //Todo Death
-        Destroy(gameObject);
+        if (actuallyDie)
+        {
+            Destroy(gameObject);
+
+        }
     }
 
     private void UpdateLocalScale()

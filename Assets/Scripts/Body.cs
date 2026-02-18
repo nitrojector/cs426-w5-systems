@@ -24,7 +24,7 @@ public class Body : MonoBehaviour
     // Update is called once per frame
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Body collided with " + other.gameObject.name);
+        //Debug.Log("Body collided with " + other.gameObject.name);
 
         if (other.gameObject.CompareTag(deathTag))
         {
