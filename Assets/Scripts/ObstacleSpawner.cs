@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ObstacleSpawner : MonoBehaviour
 {
-    private float normalspawn = 0.0f;
+    private float normalspawn = 0.5f;
    
 
     public float SpawnInterval = 5.0f;
@@ -45,7 +45,6 @@ public class ObstacleSpawner : MonoBehaviour
         }
         else
         {
-            Debug.Log("Horizontal");
             //obstacle.SetupObstacle(size, location);
 
             obstacle.SetupHorizontal(size);
