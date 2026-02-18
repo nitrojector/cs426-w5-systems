@@ -23,10 +23,15 @@ public class CakePlayer : MonoBehaviour
 
     public float cakeMultipler = 0.5f;
 
+    public float score = 0.0f;
+    //todo scoring
+
     private void Awake()
     {
         _scale = bodyCollider.gameObject.transform.localScale.x;
-        Debug.Log("Scale:" + _scale);
+        // Debug.Log("Scale:" + _scale);
+       
+        Physics2D.IgnoreCollision(headCollider, bodyCollider);
 
         moveAction = InputSystem.actions.FindAction("Move");
     }
@@ -39,11 +44,12 @@ public class CakePlayer : MonoBehaviour
 
     public void Interact(Collider2D other)
     {
+        Debug.Log("interact");
         if (other.gameObject.CompareTag("Cake"))
         {
             Cake cake = other.gameObject.GetComponent<Cake>();
 
-            Debug.Log("Before Scale:" + _scale);
+           // Debug.Log("Before Scale:" + _scale);
 
             switch (cake.Type)
             {
@@ -61,16 +67,25 @@ public class CakePlayer : MonoBehaviour
                     break;
             }
 
-            Debug.Log("Scale:" + _scale);
+           // Debug.Log("Scale:" + _scale);
 
             Destroy(other.gameObject);
 
             UpdateLocalScale();
         }
+
+        
     }
 
     private void OnCollisionEnter2D(Collision2D other)
     {
+        
+    }
+
+    public void Die()
+    {
+        //Todo Death
+        Destroy(gameObject);
     }
 
     private void UpdateLocalScale()

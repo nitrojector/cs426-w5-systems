@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 203017190214343596}
   - component: {fileID: 5071989904088626663}
   - component: {fileID: 262167374510784429}
+  - component: {fileID: 8523773684494709786}
   m_Layer: 0
   m_Name: Cake
   m_TagString: Cake
@@ -152,4 +153,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Cake
   DespawnY: -5
+  velocity: 2
+--- !u!114 &8523773684494709786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4668968679981756262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d213c17cf6afdb488682d80d8408093, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FallingScript
+  DespawnY: -6
   velocity: 2

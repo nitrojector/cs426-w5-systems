@@ -5,8 +5,6 @@ public class Cake : MonoBehaviour
 {
     public CakeType Type { get; private set; } = CakeType.Normal;
 
-    public float DespawnY = -6.0f;
-
     public enum CakeType
     {
         Normal,
@@ -21,7 +19,6 @@ public class Cake : MonoBehaviour
         [CakeType.Horizontal] = new(1.0f, 0.3f)
     };
 
-    public float velocity = 2.0f;
 
     void Awake()
     {
@@ -30,12 +27,7 @@ public class Cake : MonoBehaviour
 
     void Update()
     {
-        transform.position += Vector3.down * velocity * Time.deltaTime;
-
-        if (transform.position.y < DespawnY)
-        {
-            Destroy(gameObject);
-        }
+   
     }
 
     public void SetType(CakeType type)
