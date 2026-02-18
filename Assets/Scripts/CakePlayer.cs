@@ -84,12 +84,26 @@ public class CakePlayer : MonoBehaviour
             _t = 0.0f;
             GameManager.AdjustScore(Time.deltaTime * 100.0f);
 
-            scoreText.SetText($"Score: {GameManager.Score:F1}\nHi: {GameManager.HiScore:F1}");
+            scoreText.SetText($"Score: {GameManager.Score:F1}\nHi-Score: {GameManager.HiScore:F1}");
         }
 
         Debug.Log($"scale={_scale:F3}");
 
         UpdateLocalScale();
+    }
+
+    private void FixedUpdate()
+    {
+        if (false)
+        {
+            var pos = transform.position;
+            if (pos.y < Constants.PlayerTargetY)
+            {
+                pos.y = Mathf.Min(Constants.PlayerTargetY - pos.y, 0.05f);
+            }
+
+            transform.position = pos;
+        }
     }
 
 
