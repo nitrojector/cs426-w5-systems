@@ -1037,6 +1037,33 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!50 &1622985160
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 50553671}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1657131557 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4668968679981756262, guid: 60d64d66c5e5ccc428afedd9d9f83953, type: 3}
@@ -1058,6 +1085,38 @@ Rigidbody2D:
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!1 &1829372297 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8850483497855570997, guid: 2a52ce61451e6584ebd8d622e16079c1, type: 3}
+  m_PrefabInstance: {fileID: 2253345475746242885}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &1829372303
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1829372297}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -1291,6 +1350,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5211199082331433848, guid: 2a52ce61451e6584ebd8d622e16079c1, type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7160732644434509591, guid: 2a52ce61451e6584ebd8d622e16079c1, type: 3}
       propertyPath: m_Color.a
       value: 0.7019608
@@ -1347,6 +1410,10 @@ PrefabInstance:
       propertyPath: m_GravityScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8850483497855570997, guid: 2a52ce61451e6584ebd8d622e16079c1, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1357,6 +1424,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4401973777010042791, guid: 2a52ce61451e6584ebd8d622e16079c1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1622985158}
+    - targetCorrespondingSourceObject: {fileID: 4401973777010042791, guid: 2a52ce61451e6584ebd8d622e16079c1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1622985160}
+    - targetCorrespondingSourceObject: {fileID: 8850483497855570997, guid: 2a52ce61451e6584ebd8d622e16079c1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1829372303}
   m_SourcePrefab: {fileID: 100100000, guid: 2a52ce61451e6584ebd8d622e16079c1, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
