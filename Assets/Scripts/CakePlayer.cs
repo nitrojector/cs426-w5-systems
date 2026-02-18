@@ -59,6 +59,12 @@ public class CakePlayer : MonoBehaviour
 
     void Update()
     {
+        // check for death
+        if (_scale <= Constants.PlayerDeathScale || transform.position.y < Constants.PlayerDeathY)
+        {
+            Die();
+        }
+
         Vector2 input = moveAction.ReadValue<Vector2>();
 
         if (Mathf.Abs(input.x) > 0) // player is strafing
@@ -77,14 +83,8 @@ public class CakePlayer : MonoBehaviour
             if (_t < scoreInterval) return;
             _t = 0.0f;
             GameManager.AdjustScore(Time.deltaTime * 100.0f);
-            
+
             scoreText.SetText($"Score: {GameManager.Score:F1}\nHi: {GameManager.HiScore:F1}");
-        }
-        
-        // check for death
-        if (_scale <= Constants.PlayerDeathScale || transform.position.y < Constants.DespawnY)
-        {
-            Die();
         }
 
         Debug.Log($"scale={_scale:F3}");
@@ -129,11 +129,13 @@ public class CakePlayer : MonoBehaviour
                 case Cake.CakeType.Vertical:
                     verticalCakeTracker *= 1 - cakeMultipler;
                     _ar /= 1.0f + arDelta;
+                    _scale += areaDelta * Constants.SpecialCakeCalorieValuePerc;
                     GameManager.AdjustScore(1.0f);
                     break;
                 case Cake.CakeType.Horizontal:
                     verticalCakeTracker *= 1 + cakeMultipler;
                     _ar *= 1.0f + arDelta;
+                    _scale += areaDelta * Constants.SpecialCakeCalorieValuePerc;
                     GameManager.AdjustScore(1.0f);
                     break;
             }
@@ -159,7 +161,7 @@ public class CakePlayer : MonoBehaviour
 
     public void Reset()
     {
-        transform.position = new Vector3(0,-3,0);
+        transform.position = new Vector3(0, -3, 0);
         _scale = 3.0f;
         _ar = 1.0f;
         cakeTracker = 1.0f;
