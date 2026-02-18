@@ -36,8 +36,8 @@ public class Obstacle : MonoBehaviour
         leftWidth = Mathf.Max(0.1f, leftWidth);
         rightWidth = Mathf.Max(0.1f, rightWidth);
 
-
-        Debug.Log("SW:" + screenWidth + "LW:" + leftWidth + "LP:" + (-screenWidth / 2f + leftWidth / 2f));
+      //  Debug.Log("RP:  " +( screenWidth / 2f - rightWidth / 2f));
+        //Debug.Log("SW:" + screenWidth + "LW:" + leftWidth + "LP:" + (-screenWidth / 2f + leftWidth / 2f));
         // Position left wall
         wallLeft.localScale = new Vector3(leftWidth, wallLeft.localScale.y, 1);
         wallLeft.localPosition = new Vector3(

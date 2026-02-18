@@ -9,7 +9,7 @@ public class ObstacleSpawner : MonoBehaviour
     private float _t = 0.0f;
 
 
-    public Vector2 HorizontalRange = new(-5.0f, 5.0f);
+    public Vector2 locationRange = new(-6.0f, 6.0f);
     public Vector2 sizeRqange = new(2f, 6f);
 
     public float VerticalSpawnOffset = 1.0f;
@@ -29,12 +29,14 @@ public class ObstacleSpawner : MonoBehaviour
         Vector3 pos = new(x, y, 0.0f);
 
 
-        float location = UnityEngine.Random.Range(HorizontalRange.x, HorizontalRange.y);
-
+        float location = UnityEngine.Random.Range(locationRange.x, locationRange.y);
         float size = UnityEngine.Random.Range(sizeRqange.x, sizeRqange.y);
 
+        //Debug.Log("Location: " + location + "Size: " + size);
+
         Obstacle obstacle = Instantiate(prefab, pos, Quaternion.identity);
-        obstacle.SetupObstacle(location, size);
+        obstacle.SetupObstacle(size, location);
+
 
        
 
