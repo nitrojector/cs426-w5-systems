@@ -70,20 +70,21 @@ public class CakePlayer : MonoBehaviour
 
         // updates score display
         {
-            scoreText.SetText($"Score: {GameManager.Score}\nHi: {GameManager.HiScore}");
+            _t += Time.deltaTime;
+            if (_t < scoreInterval) return;
+            _t = 0.0f;
+            GameManager.AdjustScore(Time.deltaTime * 100.0f);
+            
+            scoreText.SetText($"Score: {GameManager.Score:F1}\nHi: {GameManager.HiScore:F1}");
+        }
+        
+        // check for death
+        if (_scale <= Constants.PlayerDeathScale || transform.position.y < Constants.DespawnY)
+        {
+            Die();
         }
 
-
-        _t += Time.deltaTime;
-        if (_t < scoreInterval) return;
-        _t = 0.0f;
-
-
-
-        GameManager.Score += (int)(Time.deltaTime * 1000);
-        string text = "Score : " + score + "\nHigh Score: " + 0;
-        scoreText.text = text;
-
+        Debug.Log($"scale={_scale:F3}");
 
         UpdateLocalScale();
     }
@@ -102,14 +103,17 @@ public class CakePlayer : MonoBehaviour
                 case Cake.CakeType.Normal:
                     cakeTracker *= 1 - cakeMultipler;
                     _scale += areaDelta;
+                    GameManager.AdjustScore(2.0f);
                     break;
                 case Cake.CakeType.Vertical:
                     verticalCakeTracker *= 1 - cakeMultipler;
                     _ar /= 1.0f + arDelta;
+                    GameManager.AdjustScore(1.0f);
                     break;
                 case Cake.CakeType.Horizontal:
                     verticalCakeTracker *= 1 + cakeMultipler;
                     _ar *= 1.0f + arDelta;
+                    GameManager.AdjustScore(1.0f);
                     break;
             }
 
@@ -121,13 +125,10 @@ public class CakePlayer : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-    }
-
     public void Die()
     {
-        if (actuallyDie)
+        Debug.Log("Die");
+        // if (actuallyDie)
         {
             ActorManager.DestroyAll();
             Reset();
@@ -141,11 +142,7 @@ public class CakePlayer : MonoBehaviour
         _ar = 1.0f;
         cakeTracker = 1.0f;
         verticalCakeTracker = 1.0f;
-
-        GameManager.UpdateScore();
-
-
-
+        GameManager.ResetScore();
         UpdateLocalScale();
     }
 

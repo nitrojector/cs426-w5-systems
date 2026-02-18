@@ -7,8 +7,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
-    public static int Score { get; set; }
-    public static int HiScore { get; set; }
+    public static float Score { get; private set; }
+    public static float HiScore { get; private set; }
 
     private void Awake()
     {
@@ -22,14 +22,18 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    public static void UpdateScore()
+    public static void ResetScore()
     {
-       // Score = points;
+        Score = 0.0f;
+    }
+
+    public static void AdjustScore(float delta)
+    {
+        Score += delta;
         if (Score > HiScore)
         {
             HiScore = Score;
         }
-        Score = 0;
     }
 
     void Update()

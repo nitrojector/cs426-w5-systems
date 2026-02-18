@@ -28,9 +28,9 @@ public class Body : MonoBehaviour
     {
         //Debug.Log("Body collided with " + other.gameObject.name);
 
-        if (other.gameObject.CompareTag(deathTag))
-        {
-            _cakePlayer.Die();
-        }
+        // if (other.gameObject.CompareTag(deathTag))
+        // {
+        //     _cakePlayer.Die();
+        // }
     }
 }

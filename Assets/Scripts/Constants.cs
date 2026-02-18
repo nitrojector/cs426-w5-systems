@@ -1,7 +1,9 @@
 ﻿public static class Constants
 {
     public const float BackgroundYMvmtVel = -2.0f;
+    public const float DespawnY = -6.0f;
+    public const float PlayerDeathScale = 0.8f;
 
-    public const float PlayerCalorieBurnRateRegular = 0.1f;
-    public const float PlayerCalorieBurnRateStrafe = 0.25f;
+    public const float PlayerCalorieBurnRateRegular = 0.08f;
+    public const float PlayerCalorieBurnRateStrafe = 0.16f;
 }

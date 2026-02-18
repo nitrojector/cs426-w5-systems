@@ -2,9 +2,6 @@ using UnityEngine;
 
 public class FallingScript : MonoBehaviour
 {
-    public float DespawnY = -6.0f;
-    public float velocity = 2.0f;
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -14,9 +11,9 @@ public class FallingScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position += Vector3.down * velocity * Time.deltaTime;
+        transform.position += Vector3.up * (Constants.BackgroundYMvmtVel * Time.deltaTime);
 
-        if (transform.position.y < DespawnY)
+        if (transform.position.y < Constants.DespawnY)
         {
             Destroy(gameObject);
         }
