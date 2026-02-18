@@ -34,6 +34,9 @@ public class CakePlayer : MonoBehaviour
     public float scoreInterval = 0.25f;
     private float _t = 0.0f;
 
+    public AudioSource eatCakeAudio;
+    public AudioSource deathAudio;
+
     private void Awake()
     {
         if (Instance != null)
@@ -89,6 +92,23 @@ public class CakePlayer : MonoBehaviour
         UpdateLocalScale();
     }
 
+
+    private void PlayEatCakeSound()
+    {
+        if (eatCakeAudio != null && !eatCakeAudio.isPlaying)
+        {
+            eatCakeAudio.Play();
+        }
+    }
+
+    private void PlayDeathSound()
+    {
+        if (deathAudio != null && !deathAudio.isPlaying)
+        {
+            deathAudio.Play();
+        }
+    }
+
     public void Interact(Collider2D other)
     {
         //Debug.Log("interact");
@@ -97,6 +117,7 @@ public class CakePlayer : MonoBehaviour
             Cake cake = other.gameObject.GetComponent<Cake>();
 
             // Debug.Log("Before Scale:" + _scale);
+            PlayEatCakeSound();
 
             switch (cake.Type)
             {
@@ -130,6 +151,7 @@ public class CakePlayer : MonoBehaviour
         Debug.Log("Die");
         // if (actuallyDie)
         {
+            PlayDeathSound();
             ActorManager.DestroyAll();
             Reset();
         }
@@ -137,7 +159,7 @@ public class CakePlayer : MonoBehaviour
 
     public void Reset()
     {
-        transform.position = Vector3.zero;
+        transform.position = new Vector3(0,-3,0);
         _scale = 3.0f;
         _ar = 1.0f;
         cakeTracker = 1.0f;

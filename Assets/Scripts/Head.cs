@@ -23,10 +23,10 @@ public class Head : MonoBehaviour
       // Debug.Log("Head collided with " + other.gameObject.name);
         _cakePlayer.Interact(other);
 
-        // if (other.gameObject.CompareTag(deathTag))
-        // {
-        //     _cakePlayer.Die();
-        // }
+        if (other.gameObject.CompareTag(deathTag))
+        {
+            _cakePlayer.Die();
+        }
     }
 
 

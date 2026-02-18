@@ -34,7 +34,7 @@ public class Obstacle : MonoBehaviour
 
     public void SetupHorizontal(float size)
     {
-        float holeSize = -5;
+        float holeSize = -1;
         float holeCenter = 0;
         
 

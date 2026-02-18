@@ -27,10 +27,9 @@ public class Body : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         //Debug.Log("Body collided with " + other.gameObject.name);
-
-        // if (other.gameObject.CompareTag(deathTag))
-        // {
-        //     _cakePlayer.Die();
-        // }
+        if (other.gameObject.CompareTag(deathTag))
+        {
+            _cakePlayer.Die();
+        }
     }
 }

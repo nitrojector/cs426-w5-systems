@@ -49,13 +49,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Cake
   headCollider: {fileID: 8922071009610882752}
   bodyCollider: {fileID: 5484952467841256864}
+  scoreText: {fileID: 0}
+  score: 0
   velocity: 5
   arDelta: 0.15
   areaDelta: 0.5
   cakeTracker: 1
   verticalCakeTracker: 1
   cakeMultipler: 0.1
-  score: 0
+  actuallyDie: 0
+  scoreInterval: 0.25
+  eatCakeAudio: {fileID: 0}
+  deathAudio: {fileID: 0}
 --- !u!61 &7491497310152060032
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -186,7 +191,7 @@ SpriteRenderer:
   m_SortingOrder: -1
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.8117647, g: 0.53436834, b: 0, a: 0.59607846}
+  m_Color: {r: 0.015350665, g: 0.021520121, b: 0.581132, a: 0.93333334}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -340,7 +345,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.8396226, g: 0.06732824, b: 0.06732824, a: 1}
+  m_Color: {r: 1, g: 0.8705883, b: 0.6784314, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
