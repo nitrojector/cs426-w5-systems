@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Cake : MonoBehaviour
@@ -23,11 +24,16 @@ public class Cake : MonoBehaviour
     void Awake()
     {
         SetType(Type);
+        ActorManager.Add(gameObject);
+    }
+
+    private void OnDestroy()
+    {
+        ActorManager.Remove(gameObject);
     }
 
     void Update()
     {
-   
     }
 
     public void SetType(CakeType type)

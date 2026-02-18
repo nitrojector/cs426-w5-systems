@@ -1,23 +1,31 @@
+using System;
 using UnityEngine;
 using static UnityEditor.FilePathAttribute;
+using Random = UnityEngine.Random;
 
 public class Obstacle : MonoBehaviour
 {
     public Transform wallLeft;
     public Transform wallRight;
 
-    public float holeSize = 2f;          
+    public float holeSize = 2f;
     public float holeCenter = 0f;
 
     public float horizontalSize = 5f;
 
     public float screenWidth = 20;
 
-     public float DespawnY = -6.0f;
+    public float DespawnY = -6.0f;
 
     void Awake()
     {
+        ActorManager.Add(gameObject);
         SetupObstacle(holeSize, holeCenter);
+    }
+
+    private void OnDestroy()
+    {
+        ActorManager.Remove(gameObject);
     }
 
     void Update()
@@ -105,7 +113,6 @@ public class Obstacle : MonoBehaviour
 
     }
 
-   
 
     // Call this to randomize hole
     public void RandomizeHole(float minSize, float maxSize)
